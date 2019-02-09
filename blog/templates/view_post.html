@@ -1,0 +1,19 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+{% if post.publish %}
+<div class="panel panel-default">
+	<div class="panel-heading">{{ post.title }}</div>
+	<div class="panel-body">
+		<p>Posted by admin <span class="pull-right">{{ post.created }}</span></p>
+		<p>
+			{{ post.body|safe }}
+		</p>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
+

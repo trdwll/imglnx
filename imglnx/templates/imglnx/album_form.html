@@ -1,0 +1,12 @@
+{% extends '_base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {%  include 'imglnx/template.html' %}
+        {% for image in images %}
+        <input type="checkbox" name="addtoalbum[]" value="{{ image.pk }}" id="albumSelect"><a href="/i/{{ image.image }}" target="_blank" rel="noopener noreferrer">{{ image.image }}</a>
+        {% endfor %}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+{% endblock %}

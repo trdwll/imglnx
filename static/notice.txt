@@ -1,0 +1,37 @@
+Dear users,
+
+imglnx has been the best and most successful project I've ever created and ran. With that being said I want to go ahead and let you all know that imglnx will be closing it's doors March 3rd, 2018. 
+
+Why? 
+Well, I lost interest in the project about 2 months ago and I'm just too busy to keep up with it. imglnx takes a decent amount of time to keep up and running smoothly. I'd like to close it now so the services quality doesn't degrade over time.
+
+What now?
+Not sure. I'm going to keep renewing the domain incase I want to revive the project later on, but I make no promises.
+
+k den
+k. I've thought about open sourcing and I've even tried to find some trustworthy people to take over the project, but it's rather difficult to find people that you can trust so I've been unsuccessful. 
+
+
+Some people have said that image hosts usually go down after a few months and I can say that imglnx has ran for over a year without any major disruptions. I did take in some donations last year (around September 2017) that kept the service running until March 2018. I'd like to recognize those people that donated once more and say thanks for your contribution to the service. While money wasn't a problem for the service any donations certainly helped. 
+
+This has certainly been a huge learning experience. Thanks to everyone that's used the service over the past year.
+
+
+
+========
+FAQ
+========
+
+Raided? 
+No
+
+Can I have the src?
+No
+
+fuk u.
+no u
+
+Can I download my images that I've uploaded?
+Too much work to do this. If I have the app zip up archives (that are fucking huge) it'll crash and if I do it manually it'll just take days to do it. So no. Sorry.
+
+

@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load base_tags %}
+
+{% block title %}Latest Images{% endblock %}
+
+{% block content %}
+<h2>Latest Images</h2>
+<div class="row">
+	{% for image in images %}
+	<div class="col-xs-6 col-md-2">
+		<div class="image-wrapper">
+			<a href="{{ MEDIA_URL }}{{ image.image }}"><img class="center-block" src="{{ image.image|get_thumbnail }}" /></a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

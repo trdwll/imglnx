@@ -1,0 +1,44 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}API{% endblock %}
+
+{% block nav-api %}
+<li class="active"><a href="#">API</a></li>
+{% endblock %}
+
+{% block content %}
+{% if errors %}
+<div class="alert alert-info">
+{{ errors|safe }}
+</div>
+{% endif %}
+<div class="panel panel-default">
+<div class="panel-heading"><h5>API Documentation</h5></div>
+	<div class="panel-body">
+		Send a <code>POST</code> request to <code>https://(www.)imglnx.com/api/v1.1/upload/</code>. The available args are listed below.<br /><br />
+		<ul>
+			<li><code>auth_token</code> = Your unique API key - if NULL or doesn't exist then the image will be uploaded as Anonymous Upload</li>
+      <li><code>private</code> = Makes all of your API uploads private from the <a href="{% url 'latest-images' %}">latest</a> page. (will eventually be a proper private upload)</li>
+		</ul>
+		For people that don't know how to set this up manually, import this into your ShareX app. Make sure you replace <code>MY_AUTH_TOKEN_HERE</code> with your auth_token, else the image will be upload anonymously.<br />
+<pre class="pre-style">
+{
+  "Name": "imglnx",
+  "DestinationType": "ImageUploader",
+  "RequestType": "POST",
+  "RequestURL": "https://imglnx.com/api/v1.1/upload/",
+  "FileFormName": "images",
+  "Arguments": {
+    "auth_token": "MY_AUTH_TOKEN_HERE",
+    "private": "False"
+  },
+  "ResponseType": "Text",
+  "URL": "$json:image$"
+}
+</pre>
+	</div>
+	<div class="panel-footer"></div>
+</div>
+
+{% endblock %}

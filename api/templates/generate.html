@@ -1,0 +1,20 @@
+
+<table class="table" id="api-keys-table">
+	{% if api_keys|length >= 1 %}
+		<tr><th>API Key</th><th>Created on</th><th>Images Uploaded</th><th></th></tr>
+		{% for api in api_keys %}
+		<tr><td>{{ api.api_key }}</td>
+		<td>{{ api.created }}</td>
+		<td>{{ api.upload_count }}</td>
+		<td><button name="{{ api.api_key }}" class="btn btn-danger btn-xs delete-api-key"><i class="fa fa-times" aria-hidden="true"></i></button></td></tr>
+		{% endfor %}
+	{% else %}
+	<div class="alert alert-danger">Oh no! You don't have any API Keys! Generate one now!!!</div>
+	{% endif %}
+</table>
+
+<form method="POST" class="form-horizontal" enctype="multipart/form-data" action="{% url 'api:api-create-key' %}"> 
+    {% csrf_token %}
+	<button class="btn btn-success" type="submit" {% if api_keys|length >= 5 %}disabled{% endif %}>Generate New Token</button>
+	<div class="clearfix"></div>
+</form>

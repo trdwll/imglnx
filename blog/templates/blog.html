@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block nav-blog %}
+<li class="active"><a href="#">Blog</a></li>
+{% endblock %}
+
+{% block content %}
+{% for post in all_posts %}
+
+{% if post.publish %}
+<div class="panel panel-default">
+	<div class="panel-heading"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+	<div class="panel-body">
+		<p>Posted by admin <span class="pull-right">{{ post.created }} </span></p>
+		<p>
+			{{ post.body|safe }}
+		</p>
+	</div>
+</div>
+{% endif %}
+{% endfor %}
+
+{% if all_posts.has_other_pages %}
+	<ul class="pager">
+	{% if all_posts.has_previous %}
+		<li class="previous"><a href="?page={{ all_posts.previous_page_number }}"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Newer</a></li>
+	{% endif %}
+	
+	{% if all_posts.has_next %}
+		<li class="next"><a href="?page={{ all_posts.next_page_number }}">Older <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+	{% endif %}
+	</ul>
+{% endif %}
+
+{% endblock %}
+

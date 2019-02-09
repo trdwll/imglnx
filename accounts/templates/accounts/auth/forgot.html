@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block title %}Forgot{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<form method="POST" class="form-horizontal">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h5>Forgot</h5></div>
+				<div class="panel-body">
+					{% if error %}
+					<div class="alert alert-danger">{{ error }}</div>
+					{% endif %}
+					{% csrf_token %}
+					{% for field in form %}
+					<div class="form-group">
+						<label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+						<div class="col-sm-10">
+							{{ field }}
+							<span class="help-block">{{ field.help_text }}</span>
+						</div>
+					</div>
+					{% endfor %}
+
+					<div class="alert alert-success">
+						<strong>If you forgot your username, email, or recovery code feel free to <a href="{% url 'contact' %}">contact us</a> and we'll try to help you recover your account. If you don't want to do that you can always create a new account.</strong>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<a class="btn btn-info" href="{% url 'login' %}" type="button">Login</a>
+					<span class="pull-right"><button class="btn btn-success" type="submit">Recover</button></span>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

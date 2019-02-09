@@ -1,0 +1,31 @@
+
+2.1.3
+Misc
+- light theme (button at bottom that saves choice in cookies)
+Add TOTAL_ON_PAGE to a cookie or session so the user doesn't have to keep setting it
+Do shit from the bottom ;)
+
+2.2.0
+RSS Feed for the blog
+Completely rewrite the API to be a proper API (rest_framework)
+- Add full documentation
+- Create albums via API
+- Bash script to do uploading via terminal
+Private Images/Albums
+- Actually make images and albums private (via nginx)
+-- If private then only allow the owner access
+Delete images after x time (if set on upload)
+Add image to multiple albums
+
+
+Not necessarily apart of the todo list, but things that could/should be improved/added.
+- when user downloads archive don't let them spam it only do it once every 15 minutes
+Check if image exists before requesting the image data to save etc. (send a HEAD request first)
+- notify user if capslock is on for register form
+style api-keys-table better
+strip all special chars from the fname before saving (url upload)
+Delete ID of album should show title (swal)
+
+move UpdateProfileView/Dashboard into it's own View for better handling
+
+- request.user.id == user.id on all forms to validate even more (user.id is from where you get the user from the db before setting data)

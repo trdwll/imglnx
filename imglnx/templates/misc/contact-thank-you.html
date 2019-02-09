@@ -1,0 +1,10 @@
+{% extends '_base.html' %}
+
+{% block title %}Thanks!{% endblock %}
+
+{% block content %}
+		<div class="jumbotron">
+			<h1>We got your request!</h1>
+			<p>Thanks for sending us a contact request! We'll work on getting back to you within 48 hours, but incase we don't please <a href="{% url 'contact' %}">resubmit</a> your inquiry.</p>
+		</div>
+{% endblock %}

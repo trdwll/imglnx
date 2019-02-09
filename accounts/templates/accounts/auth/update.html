@@ -1,0 +1,18 @@
+<form method="POST" class="form-horizontal" enctype="multipart/form-data"> 
+    {% csrf_token %}
+
+	{% for field in form %}
+	<div class="form-group">
+		<label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+		<div class="col-sm-10">
+			{{ field }}
+			<span class="help-block">{{ field.help_text }}</span>
+		</div>
+	</div>
+	{% if field.name == 'passwordcur' or field.name == 'email' %}
+		<hr />
+	{% endif %}
+	{% endfor %}
+	<span class="pull-right"><button class="btn btn-success" type="submit">Update</button></span>
+	<div class="clearfix"></div>
+</form>

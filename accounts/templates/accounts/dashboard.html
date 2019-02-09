@@ -1,0 +1,56 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block head %}
+<script src="{% static 'js/user.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+{% if errors %}
+<div class="alert alert-info">
+{{ errors|safe }}
+</div>
+{% endif %}
+<div class="panel panel-default">
+<div class="panel-heading"><h5>Dashboard</h5></div>
+	<div class="panel-body">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+			<li><a data-toggle="tab" href="#emailpass">Edit Password</a></li>
+			<li><a data-toggle="tab" href="#api">API Keys</a></li>
+			<li class="pull-right"><a href="{% url 'account:albums' %}">My Albums</a></li>
+			<li class="pull-right"><a href="{% url 'account:images' %}">My Images</a></li>
+		</ul>
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+			<h3>Your Account</h3>
+				<p>
+					<ul>
+						<li>Username: {{ user.username }} </li>
+						<li>Register Date: {{ user.date_joined }} </li>
+						<li>Uploaded Images: {{ images|length }}</li>
+						<li>Albums: {{ albums|length }}</li>
+						{{ dynamic }}
+					</ul>
+				</p>
+				<button type="submit" id="delete-me" class="btn btn-danger btn-md">Delete Your Account <i class="fa fa-remove" aria-hidden="true"></i></button>
+			</div>
+			<div id="emailpass" class="tab-pane fade">
+				<h3>Edit Password</h3>
+				{% include 'accounts/auth/update.html' %}
+			</div>
+			<div id="api" class="tab-pane fade">
+				<h3>API Keys</h3>
+				{% include 'generate.html' %}
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+{% endblock %}

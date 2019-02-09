@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block nav-contact %}
+<li class="active"><a href="#">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+    {% for error in errors %}
+    {{ error }}
+    {% endfor %}
+		<form method="POST" class="form-horizontal">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h5>Contact</h5></div>
+				<div class="panel-body">
+					<p>Alternatively instead of using this form you can tweet us <a href="https://twitter.com/imglnx" target="_blank" rel="noopener noreferrer">@imglnx</a> or even email us at <a href="mailto:contact@imglnx.com">contact@imglnx.com</a> (<a href="/static/downloads/contact.asc">GPG</a>). <strong>NOTE: Our email isn't hosted by us so please use GPG when mailing us!</strong></p><br />
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="email" class="col-sm-2 control-label">Email*</label>
+						<div class="col-sm-10">
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email" {% if user.is_authenticated %}value="{{ request.user.email }}"{% endif %} required>
+							<p class="help-block">So we can contact you if it's necessary.</p>
+						</div>
+					</div>
+					<div class="form-group"> 
+						<label for="reason" class="col-sm-2 control-label">Reason for Contact*</label>
+						<div class="col-sm-10">
+							<select class="form-control" id="reason" name="reason" required>
+								<option>Image Removal / Private Information Exposed</option>
+								<option>Image Removal / Against ToS</option>
+								<option>Image Removal / Other</option>
+								<option>Feature Request</option>
+								<option>Feedback</option>
+								<option>Other</option>
+							</select>
+							<p class="help-block">Why are you contacting us?</p>
+						</div>
+					</div>
+					<div class="form-group"> 
+						<label for="message" class="col-sm-2 control-label">Message*</label>
+						<div class="col-sm-10">
+							<textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+							<p class="help-block">Provide some information regarding why you're contacting us.</p>
+						</div>
+					</div>
+					<div class="form-group"> 
+						<label for="message" class="col-sm-2 control-label">{{ form.captcha.label_tag }}</label>
+						<div class="col-sm-10">
+							{{ form.captcha }}
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<span class="pull-right"><button class="btn btn-success" type="submit">Submit</button></span>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

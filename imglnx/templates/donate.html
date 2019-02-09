@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Donate{% endblock %}
+
+{% block nav-donate %}
+<li class="active"><a href="#">Donate</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+<h2>Donation</h2>
+<p>Thanks for just looking at this page. Regardless if you donate we'll keep paying for the service. Keep in mind, we'll never email or even ask for handouts. However, if we run into trouble paying for the service we may post a message on the home page asking users to throw us a dollar or whatever.<br />
+With all of that being said if you really want to donate you can via PayPal or Bitcoin.<br />
+Before you're on board with donating you need to know by donating you don't get anything in return in terms of perks like more storage or a custom subdomain etc.<br />
+<br />
+The donations go towards server costs (~$8/m currently and will get higher as the service gets larger). If we get more money thrown at us (exceeding the server cost) we'll use the money for the months after (we'll never pocket donations as that money is for this service).<br /><br />
+<a href="https://paypal.me/vuln" target="_blank" rel="noopener noreferrer"><img src="{% static 'img/pp_donate.png' %}" /></a><br /><br />
+Bitcoin: REDACTED<br /><br /><br />
+
+Yes, the paypal is <a href="https://trdwll.com">my</a> personal paypal as there's no point in opening a seperate Paypal for imglnx.</p>
+</div>
+{% endblock %}

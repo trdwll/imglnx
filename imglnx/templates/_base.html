@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta tags -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="imglnx.com is an image hosting service that allows users to upload images. - free, fast, secure, simple, image hosting">
+		<meta name="keywords" content="imglnx, imglnx.com, imglnx com, image, images, video, videos, image hosting, img hosting, img, imgs, share, upload, uploading, uploader">
+		{% load static %}
+		<!-- Add the favicon to the page -->
+		<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+		<title>{% block title %}BASE{% endblock %}</title>
+
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/sweetalert.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/noty.css' %}" />
+
+		<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+		<script src="{% static 'js/noty.min.js' %}"></script>
+		<script src="{% static 'js/app.js' %}"></script>
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+	{% load base_tags %}
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" /></a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					{% block nav-home %}<li><a href="{% url 'home' %}">Home</a></li>{% endblock %}
+					{% block nav-about %}<li><a href="{% url 'about' %}">About</a></li>{% endblock %}
+					{% block nav-blog %}<li><a href="{% url 'blog:index' %}">Blog</a></li>{% endblock %}
+					{% block nav-faq %}<li><a href="{% url 'faq' %}">FAQ</a></li>{% endblock %}
+					{% block nav-contact %}<li><a href="{% url 'contact' %}">Contact</a></li>{% endblock %}
+					{% block nav-api %}<li><a href="{% url 'api:api-home' %}">API</a></li>{% endblock %}
+					
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					{% if user.is_authenticated %}
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, {{ user.username }} <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="{% url 'account:dashboard' %}"><i class="fa fa-cog pull-right" aria-hidden="true"></i>Dashboard</a></li>
+							<li><a href="{% url 'account:images' %}"><i class="fa fa-image pull-right" aria-hidden="true"></i>Images ({{ user.username|get_user_images_count }})</a></li>
+							<li><a href="{% url 'account:albums' %}"><i class="fa fa-book pull-right" aria-hidden="true"></i>Albums ({{ user.username|get_user_albums_count }})</a></li>
+							<li class="divider"></li>
+							<li><a href="#" id="logout"><i class="fa fa-sign-out pull-right" aria-hidden="true"></i> Logout</a></li>
+						</ul>
+					</li>
+					{% else %}
+					<li><a href="{% url 'login' %}">Login</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+	<noscript><div class="alert alert-danger" role="alert">Yikes! Imglnx uses JavaScript and you do not. Please enable JavaScript so your time here will be better and more stable.<br />For full functionality of this site it is necessary to enable JavaScript. Here are the <a class="alert-link" href="http://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer"> instructions how to enable JavaScript in your web browser</a>.</div></noscript>
+
+	{% for alert in alerts %}
+	<div class="alert alert-{{ alert.style }} alert-dismissible" role="alert">
+		{% if not alert.sticky %} <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> {% endif %}
+		<strong>{{ alert.title }}</strong>&emsp;{{ alert.body|safe }}
+	</div>
+	{% endfor %}
+
+	{% block content %}
+		<div class="jumbotron">
+			<h1>Navbar example</h1>
+			<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+			<p>To see the difference between static and fixed top navbars, just scroll.</p>
+			<p>
+				<a class="btn btn-lg btn-primary" href="#" role="button">View navbar docs &raquo;</a>
+			</p>
+		</div>
+	{% endblock %}
+	</div>
+
+	<footer class="footer">
+		<p class="text-muted">
+			<span class="logos">
+				<!-- <a class="tmpfile" href="https://tmpfile.org" title="tmpfile.org is a sister service that allows you to upload files for 24 hours and text files for 2 hours."></a> -->
+			</span>
+			<span class="pull-left">
+			imglnx v<a href="{% url 'changelog' %}">{{ VERSION }}</a>
+			</span>	
+			<span class="pull-right">
+				We're hosting <a href="{% url 'latest-images' %}" title="View the latest uploaded images">{{ ''|get_hosted_count }}</a> images totaling at {{ ''|get_hosted_size }}.
+			</span>	
+		</p>
+	</footer>
+
+
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/sweetalert.min.js' %}"></script>
+	{% block js_end %}{% endblock %}
+	</body>
+</html>

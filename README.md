@@ -4,6 +4,8 @@ __imglnx was once a privacy focused image sharing website and this is the versio
 
 __The project isn't maintained anymore, but you're more than welcome to continue the development either on a fork etc or you can submit a PR here and I'll probably accept it.__
 
+imglnx consisted of 17462 images uploaded by 158 users so thank all of you users for making imglnx a wonderful project to have been apart of.
+
 imglnx changed ownership from me [@trdwll](https://github.com/trdwll) to a trusted friend on November 20, 2018. It's currently unknown if that friend will revive the project. _(I keep pestering that friend to revive imglnx so who knows what will happen in the future)_
 
 

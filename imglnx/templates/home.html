@@ -1,0 +1,47 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}imglnx - cats, memes, and everything else{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'js/jquery.ui.widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.fileupload.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/home.app.js' %}"></script>
+{% endblock %}
+
+{% block nav-home %}
+<li class="active"><a href="#">Home</a></li>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="logo"></a><br />
+<p class="text-center">free, fast, secure, simple, image hosting</p>
+<div id="errors"></div>
+{% if errors %}
+<div class="alert alert-danger text-left">{{ errors }}</div>
+{% endif %}
+<div class="row">
+	<div class="col-sm-10 col-sm-offset-1 hid">
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3 text-center">
+				<form id="upload" method="post" action="{% url 'image-upload' %}" enctype="multipart/form-data">
+					<div class="progress">
+						<div id="pbar" class="progress-bar progress-bar-orange" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+							<div id="progress"></div>
+						</div>
+					</div>
+					{% csrf_token %}
+					<div id="drop">
+						Drop Here<br />
+						<a id="upload_browse" title="Browse for an image locally"><i class="fa fa-folder-o" aria-hidden="true"></i></a>
+						<a id="upload_url" title="Upload from another website"><i class="fa fa-globe" aria-hidden="true"></i></a>
+						<input id="uploadF" type="file" name="images" multiple />
+					</div>
+					by using imglnx.com you agree to the <a href="{% url 'about' %}">Terms of Service</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

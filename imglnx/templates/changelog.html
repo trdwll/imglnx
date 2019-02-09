@@ -1,0 +1,162 @@
+{% extends '_base.html' %}
+
+{% block title %}Changelog{% endblock %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h5>Changelog</h5></div>
+			<div class="panel-body">
+				<!--
+					default = might break everything and is very relevant ( ͡° ͜ʖ ͡°)
+					success = new
+					info = updated/fixed
+					danger = removed
+				-->
+				<p><span class="future-version">v2.2.0 - TBD</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Add image to multiple albums*</li>
+						<li><span class="label label-success">NEW</span> Delete images after <em>x</em> time*</li>
+						<li><span class="label label-success">NEW</span> Possible light theme*</li>
+						<li><span class="label label-success">NEW</span> Private Images &amp; Albums</li>
+						<li><span class="label label-success">NEW</span> RSS Feed for the Blog</li>
+						<li><span class="label label-success">NEW</span> Advanced API (create albums etc...)</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="current-version">v2.1.3 - January 13, 2018 - <strong>The first update of the year</strong></span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Private uploads via API</li>
+						<li><span class="label label-default">IRRELEVANT</span> Removed tmpfile from footer <em>(discontinued for now)</em></li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.1.2 - October 24, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Choose <em>x</em> amount of images to display in <a href="{% url 'account:images' %}">Images</a> and <a href="{% url 'account:albums' %}">Albums</a></li>
+						<li><span class="label label-success">NEW</span> Added links to <a href="{% url 'account:images' %}">Images</a> and <a href="{% url 'account:albums' %}">Albums</a> in <a href="{% url 'account:dashboard' %}">Dashboard</a></li>
+						<li><span class="label label-info">FIXED</span> Albums now show a thumbnail</li>
+						<li><span class="label label-info">FIXED</span> CSS around the site</li>
+						<li><span class="label label-danger">REMOVED</span> Email on Registration <em>(2.1.1b)</em></li>
+						<li><span class="label label-danger">REMOVED</span> Recovery of Account <em>(2.1.1b)</em></li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.1.1 - October 11, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-info">FIXED</span> Deletion of account now deletes thumbnails</li>
+						<li><span class="label label-info">FIXED</span> Pagination for albums</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.1.0 - October 9, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Albums</li>
+						<li><span class="label label-success">NEW</span> Full js/jQuery Rewrite</li>
+						<li><span class="label label-success">NEW</span> Thumbnails to speed up load times in dashboard</li>
+						<li><span class="label label-info">UPDATED</span> Removed /rand/ and replaced with /latest/ (last 30 uploads)</li>
+						<li><span class="label label-default">IRRELEVANT</span> Added CSP (Content-Security-Policy)</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v2.0.5 - September 20, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Moved images to subdomain</li>
+						<li><span class="label label-info">UPDATED</span> Updated API to reflect subdomain change</li>
+						<li><span class="label label-default">IRRELEVANT</span> HTTP Error Pages</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.0.4 - August 27, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Direct links to blog posts</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.0.3 - August 22, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Add recovery of account</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.0.2 - August 15, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Add ProgressBar/percentage display when uploading</li>
+						<li><span class="label label-info">FIXED</span> Checking if an image is a real image on upload</li>
+						<li><span class="label label-default">IRRELEVANT</span> Some styling around the site</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span id="previous-version">v2.0.1 - July 22, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Basic Upload API</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v2.0.0 - July 15, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Accounts</li>
+						<li><span class="label label-success">NEW</span> Deletion of images</li>
+						<li><span class="label label-success">NEW</span> Download all of your uploaded images</li>
+						<li><span class="label label-success">NEW</span> Upload via URL</li>
+						<li><span class="label label-success">NEW</span> On upload - remove exif data</li>
+						<li><span class="label label-success">NEW</span> Private Images</li>
+						<li><span class="label label-success">NEW</span> View your uploaded images (requires account)</li>
+						<li><span class="label label-info">UPDATED</span> Lowered max size to 40MB</li>
+						<li><span class="label label-danger">REMOVED</span> Webm support</li>
+						<li><span class="label label-default">IRRELEVANT</span> No longer using Cloudflare</li>
+						<li><span class="label label-default">IRRELEVANT</span> Rewritten in Django (<a href="https://github.com/imglnx/src-1-x-x" target="_blank" rel="noopener noreferrer">original</a> was in PHP)</li>
+						<li><span class="label label-default">IRRELEVANT</span> Move the entire service out of the US - to Romania</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.3.1 - January 20, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Added Webm support</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.3 - January 12, 2017</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Blog Page</li>
+						<li><span class="label label-success">NEW</span> Contact Form</li>
+						<li><span class="label label-info">UPDATED</span> Updated max size to 100MB</li>
+						<li><span class="label label-default">IRRELEVANT</span> Moved to new host</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.2.1 - December 18, 2016</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Share on Social media buttons</li>
+						<li><span class="label label-info">FIXED</span> Fixed design on /p/ pages</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.2 - December 17, 2016</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Random Image Page /rand/</li>
+						<li><span class="label label-info">UPDATED</span> Redesign</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.1 - December 14, 2016</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> About and FAQ page</li>
+						<li><span class="label label-info">UPDATED</span> Changed image hash size 6 -> 10 -> 40</li>
+					</ul>
+				</p>
+				&nbsp;
+				<p><span class="previous-version">v1.0 - December 6, 2016</span>
+					<ul class="list-style-none">
+						<li><span class="label label-success">NEW</span> Initial Revival Launch</li>
+					</ul>
+				</p>
+				<p><br />*Feature isn't confirmed, but is being considered for said release or a future release.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

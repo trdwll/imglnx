@@ -1,0 +1,66 @@
+{% extends '_base.html' %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block nav-faq %}
+<li class="active"><a href="#">FAQ</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+	<div class="panel-heading"><h5>FAQ</h5></div>
+	<div class="panel-body">
+		<h3 id="general">General</h3>	
+		<h4>What is imglnx?</h4>
+		<p>imglnx (pronounced as image lynx or image links - you decide) is a free image hosting service.</p>
+		
+		<h4>What size and type of images can I upload?</h4>
+		<p>Currently we support .jpeg/.jpg, .png, .tiff, .bmp, .ico, .svg, and .gif at a maximum file size of 40MB.</p>
+		
+		<h4>Do you touch the images I upload?</h4>
+		<p><a href="https://www.youtube.com/watch?v=gvdf5n-zI14" target="_blank" rel="noopener noreferrer">nope.avi</a> - All jokes aside, we just remove <a href="https://en.wikipedia.org/wiki/Exif" target="_blank" rel="noopener noreferrer">exif</a> data.</p>
+
+		<h4>Do you delete images after x time?</h4>
+		<p>Yes and no. You can <a href="{% url 'login' %}">login</a> to your account and delete images, but as of right now you can't set an expiry on images. In other words, we store the images forever unless you delete them yourself or if they violate our <a href="{% url 'about' %}">ToS</a>.</p>
+
+		<h4>Are you going to raise the file size from 40MB?</h4>
+		<p>Honestly, 40MB is quite large for image hosting. It's possible that we'll raise it in the future, but it won't be anytime soon. ¯\_(ツ)_/¯<br />Why did we change the size from 100MB to 40MB? Well, it's because we're not on a dedi anymore so we have limited space.</p>
+		
+		<h4>Can I manage my images that I upload?</h4>
+		<p>Of course you can. Just <a href="{% url 'login' %}">login</a> and you can manage them if they were uploaded while signed into your account.</p>
+		
+
+		<hr />
+		<h3 id="security">Security</h3>	
+
+		<h4>Can I use a VPN/Proxy/Tor?</h4>
+		<p>Yes, we recommend that you do. Make sure to choose a VPN that's listed on <a href="https://torrentfreak.com/vpn-services-anonymous-review-2017-170304/" target="_blank" rel="noopener noreferrer">TorrentFreak</a> or <a href="https://thebestvpn.com/118-vpns-logging-policy" target="_blank" rel="noopener noreferrer">TheBestVPN</a>, for the most trustworthy VPN providers.</p>
+		
+		<h4>What information do you store?</h4>
+		<p>Please check our <a href="{% url 'about' %}">Legal</a> page for more information.</p>
+
+		<h4>Why do you remove exif data and what is exif data?</h4>
+		<p><a href="https://en.wikipedia.org/wiki/Exif" target="_blank" rel="noopener noreferrer">Exif</a> data is data that's in images or media that can identify you, the user. Such as GPS coordinates, time of creation, or what camera you took said photo with. We remove this data to help protect your identity.</p>
+
+		
+		<hr />
+		<h3 id="other">Other</h3>	
+
+		<h4>Is imglnx open source or will it be?</h4>
+		<p>Short answer: no. Long answer: Since we're currently on 2.x version we're not going to open source it. If we end up making it to 3.x then we'll open source the 2.x version.</p>
+		
+		<h4>Can I make app X using your API?</h4>
+		<p>YES! We made the API for other developers to be able to use our service elsewhere.</p>
+
+		<h4>My images take forever to upload?!?!?</h4>
+		<p>Hmmmm. Perhaps it's your internets? Then again it could be our server(s). Go run a speedtest and if you're getting the usual speeds (what you pay for etc) then <a href="{% url 'contact' %}">contact</a> us and we'll look into it.</p>
+
+		<h4>Can I embed images on x site?</h4>
+		<p>Forsure, do what you want.</p>
+
+		<br /><br />
+		<p>If you have any other questions, please <a href="{% url 'contact' %}">contact</a> us.</p>
+	</div>
+	<div class="panel-footer"></div>
+</div>
+{% endblock %}
