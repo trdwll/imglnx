@@ -1,5 +1,7 @@
 # imglnx
 
+__NOTICE: Django 1.11.2 is vulnerable now so don't run this in production unless you update it.__
+
 __imglnx was once a privacy focused image sharing website and this is the version 2.x source code ("src") that's written in Python using Django.__
 
 __The project isn't maintained anymore, but you're more than welcome to continue the development either on a fork etc or you can submit a PR here and I'll probably accept it.__
