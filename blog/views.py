@@ -1,7 +1,7 @@
 """
 BSD 3-Clause License
 
-Copyright (c) 2017-2019 Russ 'trdwll' Treadwell. All rights reserved.
+Copyright (c) 2016-2019 Russ 'trdwll' Treadwell. All rights reserved.
 """
 from django.shortcuts import render, render_to_response, get_object_or_404
 from . models import Post

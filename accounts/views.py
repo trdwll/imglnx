@@ -1,7 +1,7 @@
 """
 BSD 3-Clause License
 
-Copyright (c) 2017-2019 Russ 'trdwll' Treadwell. All rights reserved.
+Copyright (c) 2016-2019 Russ 'trdwll' Treadwell. All rights reserved.
 """
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
